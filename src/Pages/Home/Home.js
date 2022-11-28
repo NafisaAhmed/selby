@@ -1,5 +1,6 @@
 import React from 'react';
 import Categories from './Categories/Categories';
+import ExtraSection from './ExtraSection/ExtraSection';
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
                 </div>
             </div>
             <Categories></Categories>
+            <ExtraSection></ExtraSection>
         </section>
     );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import icon from '../../../images/image.ico';
 
 const Footer = () => {
@@ -7,12 +8,12 @@ const Footer = () => {
             <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
                 <div className="grid grid-cols-12">
                     <div className="pb-6 col-span-full md:pb-0 md:col-span-3 ">
-                        <a rel="noopener noreferrer" href="#" className="flex justify-center md:justify-start">
+                        <Link to='/' rel="noopener noreferrer" href="#" className="flex justify-center md:justify-start">
                             <div className="flex items-center justify-center w-12 h-12 rounded-full ">
                                 <img className="flex-shrink-0 w-10 h-10 rounded-full text-gray-50" src={icon} alt="" />
                             </div>
-                            <span className="self-center text-2xl font-semibold">Selby</span>
-                        </a>
+                            <h1 className="normal-case text-2xl text-cyan-500 font-bold mt-2">Sel<span className='text-rose-400'>By</span></h1>
+                        </Link>
                     </div>
 
                     <div className="col-span-3 text-center md:text-left md:col-span-3">
