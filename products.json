@@ -1,0 +1,116 @@
+[
+    {
+        "_id": 1,
+        "category_name": "Bed Room",
+        "product_name": "Bed",
+        "category_id": "01",
+        "img": "https://i.ibb.co/vP31rRD/image.png",
+        "location": "Dhaka",
+        "resale_price": "$50",
+        "original_price": "$80",
+        "years_use": 1,
+        "posting_time": "8pm,26 Nov,2022",
+        "seller_info": {
+            "seller_name": "Kuddus",
+            "phone_num": "12345"
+        },
+        "condition_type": "Excellent",
+        "description": "This bed is very comfy. If you buy it you will never regret. You will never get this type of bed in such a reasonable price. This furniture has all you want for. Life is beautiful. And your bed should be beautiful too.",
+        "purchase_year": "2021"
+    },
+    {
+        "_id": 2,
+        "category_name": "Bed Room",
+        "product_name": "Dressing Table",
+        "category_id": "01",
+        "img": "https://i.ibb.co/37V34zv/image.png",
+        "location": "Dhaka",
+        "resale_price": "$50",
+        "original_price": "$80",
+        "years_use": 1,
+        "posting_time": "8pm,26 Nov,2022",
+        "seller_info": {
+            "seller_name": "Kuddus",
+            "phone_num": "12345"
+        },
+        "condition_type": "Excellent",
+        "description": "This dressing table is very unique. If you buy it you will never regret. You will never get this type of table in such a reasonable price. This furniture has all you want for. Life is beautiful. And your dressing table should be beautiful too where you will see your mirror.",
+        "purchase_year": "2021"
+    },
+    {
+        "_id": 3,
+        "category_name": "Dining Room",
+        "product_name": "Dining Table",
+        "category_id": "02",
+        "img": "https://i.ibb.co/sQ6s3vp/image.png",
+        "location": "Dhaka",
+        "resale_price": "$50",
+        "original_price": "$80",
+        "years_use": 1,
+        "posting_time": "8pm,26 Nov,2022",
+        "seller_info": {
+            "seller_name": "Kuddus",
+            "phone_num": "12345"
+        },
+        "condition_type": "Excellent",
+        "description": "This dining table is very attractive. If you buy it you will never regret. You will never get this type of dining table in such a reasonable price. This furniture has all you want for. Life is beautiful. And your dining table should be beautiful too to place your delicious dishes.",
+        "purchase_year": "2021"
+    },
+    {
+        "_id": 4,
+        "category_name": "Dining Room",
+        "product_name": "Dining Chair",
+        "category_id": "02",
+        "img": "https://i.ibb.co/JdpQQKZ/image.png",
+        "location": "Dhaka",
+        "resale_price": "$50",
+        "original_price": "$80",
+        "years_use": 1,
+        "posting_time": "8pm,26 Nov,2022",
+        "seller_info": {
+            "seller_name": "Kuddus",
+            "phone_num": "12345"
+        },
+        "condition_type": "Excellent",
+        "description": "This dining chair is very comfy. If you buy it you will never regret. You will never get this type of chair in such a reasonable price. This furniture has all you want for. Life is beautiful. And your dining chair should be beautiful too where you will sit to have your food.",
+        "purchase_year": "2021"
+    },
+    {
+        "_id": 5,
+        "category_name": "Living Room",
+        "product_name": "Sofa",
+        "category_id": "03",
+        "img": "https://i.ibb.co/KWKX0S0/image.png",
+        "location": "Dhaka",
+        "resale_price": "$50",
+        "original_price": "$80",
+        "years_use": 1,
+        "posting_time": "8pm,26 Nov,2022",
+        "seller_info": {
+            "seller_name": "Kuddus",
+            "phone_num": "12345"
+        },
+        "condition_type": "Excellent",
+        "description": "This sofa is very comfy. If you buy it you will never regret. You will never get this type of sofa in such a reasonable price. This furniture has all you want for. Life is beautiful. And your sofa should be beautiful too.",
+        "purchase_year": "2021"
+    },
+    {
+        "_id": 6,
+        "category_name": "Living Room",
+        "product_name": "Center Table",
+        "category_id": "03",
+        "img": "https://i.ibb.co/HFn3S1g/image.png",
+        "location": "Dhaka",
+        "resale_price": "$50",
+        "original_price": "$80",
+        "years_use": 1,
+        "posting_time": "8pm,26 Nov,2022",
+        "seller_info": {
+            "seller_name": "Kuddus",
+            "phone_num": "12345"
+        },
+        "condition_type": "Excellent",
+        "description": "This center table is very unique. If you buy it you will never regret. You will never get this type of table in such a reasonable price. This furniture has all you want for. Life is beautiful. And your center table in your living room should be beautiful too.",
+        "purchase_year": "2021"
+    }
+]
