@@ -1,6 +1,5 @@
 [
     {
-        "_id": 1,
         "category_name": "Bed Room",
         "product_name": "Bed",
         "category_id": "01",
@@ -19,7 +18,6 @@
         "purchase_year": "2021"
     },
     {
-        "_id": 2,
         "category_name": "Bed Room",
         "product_name": "Dressing Table",
         "category_id": "01",
@@ -38,7 +36,6 @@
         "purchase_year": "2021"
     },
     {
-        "_id": 3,
         "category_name": "Dining Room",
         "product_name": "Dining Table",
         "category_id": "02",
@@ -57,7 +54,6 @@
         "purchase_year": "2021"
     },
     {
-        "_id": 4,
         "category_name": "Dining Room",
         "product_name": "Dining Chair",
         "category_id": "02",
@@ -76,7 +72,6 @@
         "purchase_year": "2021"
     },
     {
-        "_id": 5,
         "category_name": "Living Room",
         "product_name": "Sofa",
         "category_id": "03",
@@ -95,7 +90,6 @@
         "purchase_year": "2021"
     },
     {
-        "_id": 6,
         "category_name": "Living Room",
         "product_name": "Center Table",
         "category_id": "03",

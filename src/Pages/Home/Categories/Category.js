@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Category = ({ category }) => {
-    const { img, category_name } = category;
+    const { img, category_name, category_id } = category;
+
     return (
-        <Link>
+        <Link to={`/category/${category_id}`}>
             <div className="avatar">
                 <div className="w-72 rounded-full">
                     <img src={img} alt='' />

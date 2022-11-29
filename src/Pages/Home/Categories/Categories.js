@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import bed from '../../../images/bed.jpg';
 import dining from '../../../images/dining.jpg';
 import living from '../../../images/living.jpg';
+import Products from '../../Products/Products';
 import Category from './Category';
 
 const Categories = () => {
+    const [categories, setCategories] = useState([]);
+
     const categoryData = [
         {
             id: 1,
@@ -33,9 +36,17 @@ const Categories = () => {
                     categoryData.map(category => <Category
                         key={category.id}
                         category={category}
+                        setCategories={setCategories}
                     ></Category>)
                 }
             </div>
+            {/* {
+                categories &&
+                <Products
+                    categories={categories}
+                    setCategories={setCategories}
+                ></Products>
+            } */}
         </div>
     );
 };
