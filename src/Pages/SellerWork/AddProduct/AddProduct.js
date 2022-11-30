@@ -22,6 +22,7 @@ const AddProduct = () => {
             original_price: data.original_price,
             years_use: data.years_use,
             posting_time: date,
+            email: user.email,
             seller_info: {
                 seller_name: user.displayName,
                 phone_num: data.phone_num
