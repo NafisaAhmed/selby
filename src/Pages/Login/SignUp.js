@@ -7,17 +7,33 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [signUpError, setSignUpError] = useState('');
-    const { createUser, googleSignIn } = useContext(AuthContext);
+    const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
+    const roleData = [
+        "buyer", "seller"
+    ]
+
     const handleSignUp = data => {
-        console.log(data);
+        console.log('user', data);
         setSignUpError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 toast('User Created Succcessfully');
+                const userInfo = {
+                    displayName: data.name,
+                    role: data.role
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        saveUser(data.name, data.email, data.role);
+                    })
+                    .catch(err => {
+                        console.error(err)
+
+                    });
                 navigate('/');
             })
             .catch(error => {
@@ -26,12 +42,42 @@ const SignUp = () => {
             })
     }
 
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast('User Created Succcessfully');
+                const userInfo = {
+                    displayName: user.displayName,
+                    role: "buyer"
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        saveUser(user.displayName, user.email, userInfo.role);
+                    })
+                    .catch(err => {
+                        console.error(err)
+
+                    });
                 navigate('/');
+            })
+            .catch(error => {
+                console.error(error.message);
+                setSignUpError(error.message);
             })
     }
     return (
@@ -60,7 +106,16 @@ const SignUp = () => {
                         })}
                             className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-600'>{errors.password.message}</p>}
+                        <select type='role' className="select select-bordered w-full max-w-xs mt-4" {...register("role")}>
+                            {
+                                roleData.map((role, i) => <option
+                                    key={i}
+                                    value={role}
+                                >{role}</option>)
+                            }
+                        </select>
                     </div>
+
                     <input className='btn btn-accent w-full mt-4 text-white' value='Sign Up' type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>

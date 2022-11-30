@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, updateUser } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
@@ -27,14 +27,42 @@ const Login = () => {
             })
     }
 
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                const userInfo = {
+                    displayName: user.displayName,
+                    role: "buyer"
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        saveUser(user.displayName, user.email, userInfo.role);
+                    })
+                    .catch(err => {
+                        console.error(err)
+
+                    });
                 navigate(from, { replace: true });
             })
-            .catch(err => console.error(err));
+            .catch(error => {
+                console.error(error.message);
+                setLoginError(error.message);
+            })
     }
     return (
         <div className='h-[800px] flex justify-center items center'>
@@ -59,6 +87,7 @@ const Login = () => {
                             })} />
                         {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}
                         <label className="label"><span className="label-text">Forget Password?</span></label>
+
                     </div>
                     <input className='btn btn-accent w-full text-white' value='Login' type="submit" />
                     <div>

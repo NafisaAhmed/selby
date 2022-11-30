@@ -1,9 +1,9 @@
 import React from 'react';
 
-const BookProducts = ({ product }) => {
+const BookProducts = ({ product, setProductInfo }) => {
     const { product_name, condition_type, img, description, original_price, resale_price, location, posting_time, purchase_year, years_use, seller_info } = product;
     return (
-        <div className="card w-full bg-base-100 shadow-xl ml-20">
+        <div className="card w-full bg-base-100 shadow-xl ">
             <figure className="px-10 pt-10">
                 <img src={img} alt="Shoes" className="rounded-xl h-96" />
             </figure>
@@ -22,7 +22,7 @@ const BookProducts = ({ product }) => {
                 <h1>{seller_info.seller_name} posted in {posting_time} from {location}</h1>
                 <h1>Contact: <span className='text-green-700'>{seller_info.phone_num}</span></h1>
                 <div className="card-actions">
-                    <button className="btn btn-primary">Book Now</button>
+                    <label htmlFor='booking-modal' className="btn btn-primary" onClick={() => setProductInfo(product)}>Book Now</label>
                 </div>
             </div>
         </div>
