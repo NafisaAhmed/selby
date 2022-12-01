@@ -1,12 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Main from "../layouts/Main";
+import AllSellers from "../Pages/AdminWork/AllSellers";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
+import PageNotFound from "../Pages/PageNotFound";
 import Products from "../Pages/Products/Products";
 import AddProduct from "../Pages/SellerWork/AddProduct/AddProduct";
+import AdvertisedProduct from "../Pages/SellerWork/AdvertisedProduct/AdvertisedProduct";
 import MyProducts from "../Pages/SellerWork/MyProducts/MyProducts";
+import AdminRoute from "./AdminRoute/AdminRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import SellerRoute from "./SellerRoute/SellerRoute";
 
@@ -45,8 +49,20 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/myproducts',
                 element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
+            },
+            {
+                path: '/dashboard/advertisedproduct',
+                element: <SellerRoute><AdvertisedProduct></AdvertisedProduct></SellerRoute>
+            },
+            {
+                path: '/dashboard/allsellers',
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ])
 
