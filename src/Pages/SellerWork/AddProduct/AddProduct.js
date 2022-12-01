@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const AddProduct = () => {
@@ -10,6 +11,15 @@ const AddProduct = () => {
     const date = new Date();
     const category = ["Bed Room", "Dining Room", "Drawing Room"];
     const navigate = useNavigate();
+    const [status, setStatus] = useState([]);
+    useEffect(() => {
+        axios.get(`http://localhost:5000/users/user/${user?.email}`)
+            .then(res => {
+                console.log(res.data[0]);
+                setStatus(res.data[0]);
+            })
+
+    }, [])
     const handleAddProduct = data => {
         console.log(data);
         const sellerAddProduct = {
@@ -29,8 +39,10 @@ const AddProduct = () => {
             },
             condition_type: data.condition_type,
             description: data.description,
-            purchase_year: data.purchase_year
+            purchase_year: data.purchase_year,
+            status: status.status
         }
+
         fetch('http://localhost:5000/products', {
             method: 'POST',
             headers: {

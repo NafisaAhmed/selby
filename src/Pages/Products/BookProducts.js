@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
+import { FaCheckCircle } from 'react-icons/fa'
 
 const BookProducts = ({ product, setProductInfo }) => {
-    const { product_name, condition_type, img, description, original_price, resale_price, location, posting_time, purchase_year, years_use, seller_info } = product;
+    const { product_name, condition_type, img, description, original_price, resale_price, location, posting_time, purchase_year, years_use, seller_info, status } = product;
+    const { user } = useContext(AuthContext);
+
     return (
         <div className="card w-full bg-base-100 shadow-xl ">
             <figure className="px-10 pt-10">
@@ -19,7 +23,10 @@ const BookProducts = ({ product, setProductInfo }) => {
                     <h1 className='mr-5'>Purchase Year: {purchase_year}</h1>
                     <h1>{years_use > 1 ? `${years_use} years used` : `${years_use} year used`}</h1>
                 </div>
-                <h1>{seller_info.seller_name} posted in {posting_time} from {location}</h1>
+                <div className='flex'>
+                    <p className='mt-1'>{status ? <FaCheckCircle className='text-blue-700'></FaCheckCircle> : ""}</p>
+                    <h1>{seller_info.seller_name} posted in {posting_time} from {location}</h1>
+                </div>
                 <h1>Contact: <span className='text-green-700'>{seller_info.phone_num}</span></h1>
                 <div className="card-actions">
                     <label htmlFor='booking-modal' className="btn btn-primary" onClick={() => setProductInfo(product)}>Book Now</label>

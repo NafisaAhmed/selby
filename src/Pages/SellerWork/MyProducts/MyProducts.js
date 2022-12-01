@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
@@ -13,7 +13,7 @@ const MyProducts = () => {
             return data;
         }
     })
-
+    const [disable, setDisable] = useState(false);
     const handleAdvertise = product => {
         console.log(product);
         const advertiseProduct = {
@@ -48,7 +48,7 @@ const MyProducts = () => {
                 console.log(data);
                 if (data.acknowledged) {
                     toast('Product Advertised');
-
+                    setDisable(true);
                 }
                 else {
                     toast.error(data.message);
@@ -113,9 +113,9 @@ const MyProducts = () => {
                                 <span className="badge badge-ghost badge-sm">Original Price: {product.original_price}</span>
                             </td>
                             <td>{product.condition_type}</td>
-                            <td>{product.condition_type}</td>
+                            <td>Available</td>
                             <th>
-                                <button onClick={() => handleAdvertise(product)} className="btn btn-ghost btn-xs">advertise</button>
+                                <button onClick={() => handleAdvertise(product)} disabled={disable} className="btn btn-ghost btn-xs">advertise</button>
                             </th>
                         </tr>)
                     }

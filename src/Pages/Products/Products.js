@@ -1,17 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BookingModal from './BookingModal';
 import BookProducts from './BookProducts';
 
-const Products = ({ categories, setCategories }) => {
-    /* const { category_id } = categories;
 
-    const { data: category = [] } = useQuery({
-        queryKey: ['category'],
-        queryFn: () => fetch(`http://localhost:5000/category/${category_id}`)
-            .then(res => res.json())
-    }) */
+const Products = () => {
+
     const category = useLoaderData();
     const [productInfo, setProductInfo] = useState(null);
     console.log(category);
