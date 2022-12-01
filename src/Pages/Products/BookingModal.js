@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const BookingModal = ({ productInfo }) => {
-    const { product_name, resale_price } = productInfo;
+    const { product_name, resale_price, img } = productInfo;
     const { user } = useContext(AuthContext);
     const handleBooking = event => {
         event.preventDefault();
@@ -14,7 +14,31 @@ const BookingModal = ({ productInfo }) => {
         const phone = form.phone.value;
         const location = form.location.value;
         console.log(name, email, price, phone, location);
-        toast.success('Booking Confirmed')
+        const bookedProduct = {
+            img,
+            product_name,
+            price,
+            email
+        }
+        fetch('http://localhost:5000/bookedproducts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookedProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('Product Booked');
+
+                }
+                else {
+                    toast.error(data.message);
+                }
+            })
+            .catch(err => console.error(err));
     }
     return (
         <div>
@@ -26,7 +50,7 @@ const BookingModal = ({ productInfo }) => {
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-6'>
                         <input name='name' type="text" defaultValue={user?.displayName} placeholder="Your Name" className="input w-full input-bordered" disabled />
                         <input name='email' type="email" defaultValue={user?.email} placeholder="Email Address" className="input w-full input-bordered" disabled />
-                        <input name='price' type="text" defaultValue={`Price- ${resale_price}`} className="input w-full input-bordered" disabled />
+                        <input name='price' type="text" defaultValue={resale_price} className="input w-full input-bordered" disabled />
                         <input name='phone' type="text" placeholder="Phone Number" className="input w-full input-bordered" required />
                         <input name='location' type="text" placeholder="Meeting Location" className="input w-full input-bordered" required />
                         <br />

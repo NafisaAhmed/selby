@@ -19,7 +19,7 @@ const AddProduct = () => {
                 setStatus(res.data[0]);
             })
 
-    }, [])
+    }, [user?.email])
     const handleAddProduct = data => {
         console.log(data);
         const sellerAddProduct = {

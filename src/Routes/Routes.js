@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Main from "../layouts/Main";
 import AllSellers from "../Pages/AdminWork/AllSellers";
+import MyOrders from "../Pages/BuyerWork/MyOrders";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
@@ -11,6 +12,7 @@ import AddProduct from "../Pages/SellerWork/AddProduct/AddProduct";
 import AdvertisedProduct from "../Pages/SellerWork/AdvertisedProduct/AdvertisedProduct";
 import MyProducts from "../Pages/SellerWork/MyProducts/MyProducts";
 import AdminRoute from "./AdminRoute/AdminRoute";
+import BuyerRoute from "./BuyerRoute/BuyerRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import SellerRoute from "./SellerRoute/SellerRoute";
 
@@ -57,6 +59,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allsellers',
                 element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
+            },
+            {
+                path: '/dashboard/myorders',
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
             }
         ]
     },
