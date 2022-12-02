@@ -5,6 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 const BookingModal = ({ productInfo }) => {
     const { product_name, resale_price, img } = productInfo;
     const { user } = useContext(AuthContext);
+
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
@@ -13,6 +14,7 @@ const BookingModal = ({ productInfo }) => {
         const price = form.price.value;
         const phone = form.phone.value;
         const location = form.location.value;
+
         console.log(name, email, price, phone, location);
         const bookedProduct = {
             img,
@@ -32,7 +34,7 @@ const BookingModal = ({ productInfo }) => {
                 console.log(data);
                 if (data.acknowledged) {
                     toast.success('Product Booked');
-
+                    window.location.reload();
                 }
                 else {
                     toast.error(data.message);
@@ -40,6 +42,7 @@ const BookingModal = ({ productInfo }) => {
             })
             .catch(err => console.error(err));
     }
+
     return (
         <div>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
