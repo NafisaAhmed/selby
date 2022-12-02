@@ -66,7 +66,7 @@ const MyOrders = () => {
                                 {product.price}
                             </td>
 
-                            <td>Pay</td>
+                            <td><button className='btn'>Pay</button></td>
 
                         </tr>)
                     }
