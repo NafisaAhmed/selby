@@ -1,19 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import AdvertiseProduct from './AdvertiseProduct';
 
 const Advertise = () => {
     const { user } = useContext(AuthContext);
-    const { data: products = [] } = useQuery({
-        queryKey: ['advertise'],
-        queryFn: async () => {
-            const res = await fetch('http://localhost:5000/advertise');
-            const data = await res.json();
-            return data;
-        }
-    })
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        axios.get('http://localhost:5000/advertise')
+            .then(res => {
+                console.log(res.data);
+                setProducts(res.data);
+            })
+    }, [])
+
     const { data: advertisedProducts = [] } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () => {

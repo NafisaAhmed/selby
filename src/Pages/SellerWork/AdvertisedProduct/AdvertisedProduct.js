@@ -1,21 +1,19 @@
-import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const AdvertisedProduct = () => {
-    const [advertise, setAdvertise] = useState([]);
     const { user } = useContext(AuthContext);
-    const navigate = useNavigate();
-    useEffect(() => {
-        axios.get(`http://localhost:5000/advertise/${user?.email}`)
-            .then(res => {
-                console.log(res.data);
-                setAdvertise(res.data);
-            })
 
-    }, [])
+    const { data: advertise = [], refetch } = useQuery({
+        queryKey: ['advertise'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/advertise/${user?.email}`);
+            const data = await res.json();
+            return data;
+        }
+    })
     const handleDeleteProduct = id => {
         fetch(`http://localhost:5000/advertise/${id}`, {
             method: 'DELETE',
@@ -25,7 +23,7 @@ const AdvertisedProduct = () => {
                 console.log(data);
                 if (data.deletedCount > 0) {
                     toast('Advertised Product Deleted Succesfully');
-                    navigate('/')
+                    refetch();
                 }
             });
     }
