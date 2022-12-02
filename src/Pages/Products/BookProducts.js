@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
-import { FaCheckCircle } from 'react-icons/fa'
+import { FaCheckCircle, FaEllipsisH } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const BookProducts = ({ product, setProductInfo }) => {
     const { product_name, condition_type, img, description, original_price, resale_price, location, posting_time, purchase_year, years_use, seller_info, status } = product;
@@ -12,7 +13,17 @@ const BookProducts = ({ product, setProductInfo }) => {
                 <img src={img} alt="Shoes" className="rounded-xl h-96" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title text-teal-800 font-semithin">{product_name}</h2>
+                <div className='flex'>
+                    <h2 className="card-title text-teal-800 font-semithin">{product_name}</h2>
+                    <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle ml-44">
+                            <FaEllipsisH></FaEllipsisH>
+                        </label>
+                        <ul tabIndex={1} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><label htmlFor="report-modal" className='font-bold' onClick={() => setProductInfo(product)}>Report to Admin</label></li>
+                        </ul>
+                    </div>
+                </div>
                 <p className='font-thin'>{description}</p>
                 <div className='flex'>
                     <h1 className='mr-6'>Original Price: {original_price}</h1>

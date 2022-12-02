@@ -3,6 +3,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import Main from "../layouts/Main";
 import AllBuyers from "../Pages/AdminWork/AllBuyers";
 import AllSellers from "../Pages/AdminWork/AllSellers";
+import ReportedItems from "../Pages/AdminWork/ReportedItems";
 import MyOrders from "../Pages/BuyerWork/MyOrders";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allbuyers',
                 element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
+            },
+            {
+                path: '/dashboard/report',
+                element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
             },
             {
                 path: '/dashboard/myorders',

@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import BookingModal from './BookingModal';
 import BookProducts from './BookProducts';
+import ReportModal from './ReportModal';
 
 
 const Products = () => {
 
     const category = useLoaderData();
     const [productInfo, setProductInfo] = useState(null);
-    console.log(category);
+    //console.log(category);
     return (
         <div>
             <h1 className='text-center text-3xl font-thin my-16'>See the used products you are looking for</h1>
@@ -27,6 +28,12 @@ const Products = () => {
                 <BookingModal
                     productInfo={productInfo}
                 ></BookingModal>
+            }
+            {
+                productInfo &&
+                <ReportModal
+                    productInfo={productInfo}
+                ></ReportModal>
             }
         </div>
     );
