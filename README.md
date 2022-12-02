@@ -24,3 +24,8 @@ https://selby-78bd2.web.app/
 * tailwind, daisyui
 * react icon
 * axios, react query
+
+### Admin info
+
+adminEmail: <ahmednafisa11@gmail.com>
+adminPassword: <qwE12#>
