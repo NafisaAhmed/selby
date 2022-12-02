@@ -13,7 +13,7 @@ const AddProduct = () => {
     const navigate = useNavigate();
     const [status, setStatus] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/users/user/${user?.email}`)
+        axios.get(`https://selby-server.vercel.app/users/user/${user?.email}`)
             .then(res => {
                 console.log(res.data[0]);
                 setStatus(res.data[0]);
@@ -43,7 +43,7 @@ const AddProduct = () => {
             status: status.status
         }
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://selby-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

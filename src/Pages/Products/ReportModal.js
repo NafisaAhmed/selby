@@ -18,7 +18,7 @@ const ReportModal = ({ productInfo }) => {
             buyer: user.displayName,
             email: user.email
         }
-        fetch('http://localhost:5000/reportedproducts', {
+        fetch('https://selby-server.vercel.app/reportedproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

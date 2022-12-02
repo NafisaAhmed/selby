@@ -8,7 +8,7 @@ const Advertise = () => {
     const { user } = useContext(AuthContext);
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/advertise')
+        axios.get('https://selby-server.vercel.app/advertise')
             .then(res => {
                 console.log(res.data);
                 setProducts(res.data);
@@ -18,7 +18,7 @@ const Advertise = () => {
     const { data: advertisedProducts = [] } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/advertise/${user?.email}`);
+            const res = await fetch(`https://selby-server.vercel.app/advertise/${user?.email}`);
             const data = await res.json();
             return data;
         }

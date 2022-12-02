@@ -8,7 +8,7 @@ const MyProducts = () => {
     const { data: products = [], refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products/${user?.email}`);
+            const res = await fetch(`https://selby-server.vercel.app/products/${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -36,7 +36,7 @@ const MyProducts = () => {
             purchase_year: product.purchase_year
         }
         console.log('advertiseProducts', advertiseProduct);
-        fetch('http://localhost:5000/advertise', {
+        fetch('https://selby-server.vercel.app/advertise', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const MyProducts = () => {
             .catch(err => console.error(err));
     }
     const handleDeleteProduct = id => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://selby-server.vercel.app/products/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

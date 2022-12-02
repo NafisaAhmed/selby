@@ -6,13 +6,13 @@ const ReportedItems = () => {
     let { data: reports = [], refetch } = useQuery({
         queryKey: ['reportedproducts'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/reportedproducts');
+            const res = await fetch('https://selby-server.vercel.app/reportedproducts');
             const data = await res.json();
             return data;
         }
     })
     const handleDelete = id => {
-        fetch(`http://localhost:5000/reportedproducts/${id}`, {
+        fetch(`https://selby-server.vercel.app/reportedproducts/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

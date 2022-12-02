@@ -8,13 +8,13 @@ const MyOrders = () => {
     const { data: products = [], refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookedproducts/${user?.email}`);
+            const res = await fetch(`https://selby-server.vercel.app/bookedproducts/${user?.email}`);
             const data = await res.json();
             return data;
         }
     })
     const handleDeleteProduct = id => {
-        fetch(`http://localhost:5000/bookedProducts/${id}`, {
+        fetch(`https://selby-server.vercel.app/bookedProducts/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

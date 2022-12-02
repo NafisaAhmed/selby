@@ -9,13 +9,13 @@ const AdvertisedProduct = () => {
     const { data: advertise = [], refetch } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/advertise/${user?.email}`);
+            const res = await fetch(`https://selby-server.vercel.app/advertise/${user?.email}`);
             const data = await res.json();
             return data;
         }
     })
     const handleDeleteProduct = id => {
-        fetch(`http://localhost:5000/advertise/${id}`, {
+        fetch(`https://selby-server.vercel.app/advertise/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

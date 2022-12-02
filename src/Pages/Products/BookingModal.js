@@ -22,7 +22,7 @@ const BookingModal = ({ productInfo }) => {
             price,
             email
         }
-        fetch('http://localhost:5000/bookedproducts', {
+        fetch('https://selby-server.vercel.app/bookedproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
