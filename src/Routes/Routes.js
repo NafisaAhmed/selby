@@ -4,6 +4,7 @@ import Main from "../layouts/Main";
 import AllBuyers from "../Pages/AdminWork/AllBuyers";
 import AllSellers from "../Pages/AdminWork/AllSellers";
 import ReportedItems from "../Pages/AdminWork/ReportedItems";
+import Blogs from "../Pages/Blogs/Blogs";
 import MyOrders from "../Pages/BuyerWork/MyOrders";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
                 path: '/category/:id',
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
                 path: '/login',

@@ -12,7 +12,7 @@ const Navbar = () => {
     }
     const menuItems = <React.Fragment>
         <li><Link to="/">HOME</Link></li>
-        <li><Link to="/about">ABOUT</Link></li>
+        <li><Link to="/blogs">BLOGS</Link></li>
         {
             user?.uid ?
                 <>
