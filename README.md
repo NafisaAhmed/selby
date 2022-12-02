@@ -28,4 +28,4 @@ https://selby-78bd2.web.app/
 ### Admin info
 
 adminEmail: <ahmednafisa11@gmail.com>
-adminPassword: <qwE12#>
+adminPassword: qwE12#
